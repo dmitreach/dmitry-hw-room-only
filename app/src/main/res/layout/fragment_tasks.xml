@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".tasks.TasksFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.dmitryhow.tasks.TasksViewModel" />
+    </data>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/task_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Enter task name"
+            android:text="@={viewModel.newTaskName}"
+            />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Save task"
+            android:onClick="@{() -> viewModel.addTask()}"
+            />
+
+        <EditText
+            android:id="@+id/task_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter task id"
+            android:inputType="number"
+            android:text="@={viewModel.newTaskId}" />
+
+        <Button
+            android:id="@+id/del_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Del task"
+            android:onClick="@{() -> viewModel.delTask()}"
+            />
+
+        <TextView
+            android:id="@+id/tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.tasksString}"/>
+        <!--а здесь в виде строки выводится-->
+
+    </LinearLayout>
+
+
+
+
+</layout>
